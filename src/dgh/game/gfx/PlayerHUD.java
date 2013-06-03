@@ -1,11 +1,14 @@
 package dgh.game.gfx;
 
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 import dgh.game.Game;
-import dgh.game.entities.Player;
 import dgh.game.items.Item;
-import dgh.game.level.tiles.Tile;
 
 public class PlayerHUD {
 	
@@ -23,7 +26,7 @@ public class PlayerHUD {
 		if (showInventory) {
 			InventoryGui.render(g);
 			for(Item item: Game.player.inventory.itemList) {
-				item.renderInInventory(screen, 115, 115);
+				//render sprites somehow
 			}
 		}
 		

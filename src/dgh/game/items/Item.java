@@ -47,10 +47,6 @@ public class Item {
 		player.inventory.add(this);
 	}
 	
-	public void renderInInventory(Screen screen, int i, int j) {
-		screen.render(i, j, xSprite + ySprite * 32, color, 0x00, 1);
-	}
-	
 	public String getName() {
 		return name;
 	}

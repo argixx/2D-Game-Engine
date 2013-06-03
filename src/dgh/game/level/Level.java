@@ -32,8 +32,8 @@ public class Level {
             this.imagePath = imagePath;
             this.loadLevelFromFile();
         } else {
-            this.width = 64;
-            this.height = 64;
+            this.width = 128;
+            this.height = 128;
             tiles = new byte[width * height];
             this.generateLevel();
         }
@@ -41,8 +41,8 @@ public class Level {
     
     public void init() {
     	 for(int i = 0; i < 5; i++) {
-    		 int j = rand.nextInt(63 * 8);
-    		 int k = rand.nextInt(63 * 8);
+    		 int j = rand.nextInt((width - 1) * 8);
+    		 int k = rand.nextInt((height - 1) * 8);
     		 if(getTile(j, k).getId() != Tile.WALLTILE.getId()) {
     			 addEntity(new EntityZombie(this, j, j, 72)); 
     		 }
