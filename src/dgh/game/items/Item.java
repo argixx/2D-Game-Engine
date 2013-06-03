@@ -18,6 +18,11 @@ public class Item {
 	protected int xSprite, ySprite;
 	protected String name;
 	protected int color;
+	
+	protected int strength = 0;
+	protected int intelligence = 0;
+	protected int agility = 0;
+	protected int endurance = 0;
 
 	public Item(String name, int xSprite, int ySprite, int color) {
 		this.xSprite = xSprite;
@@ -52,5 +57,21 @@ public class Item {
 	
 	public void tick() {
 		
+	}
+	
+	public int getStrength() {
+		return strength;
+	}
+	
+	public int getIntelligence() {
+		return intelligence;
+	}
+	
+	public int getEndurance() {
+		return endurance;
+	}
+	
+	public int getAgility() {
+		return agility;
 	}
 }

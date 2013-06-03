@@ -24,6 +24,11 @@ public class Player extends Mob {
     public int hp = 100;
     private Graphics g = null;
     private int floorDepth = 1;
+    
+    public int strength = 0;
+    public int endurance = 0;
+    public int agility = 0;
+    public int intelligence = 0;
 
     public Player(Level level, int x, int y, InputHandler input, String username) {
         super(level, "Player", x, y, 1);
