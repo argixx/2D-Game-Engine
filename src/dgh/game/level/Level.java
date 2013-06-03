@@ -44,7 +44,7 @@ public class Level {
     		 int j = rand.nextInt((width - 1) * 8);
     		 int k = rand.nextInt((height - 1) * 8);
     		 if(getTile(j, k).getId() != Tile.WALLTILE.getId()) {
-    			 addEntity(new EntityZombie(this, j, j, 72)); 
+    			 //addEntity(new EntityZombie(this, j, j, 72)); 
     		 }
          }
     }
