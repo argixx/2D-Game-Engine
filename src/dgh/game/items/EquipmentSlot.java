@@ -1,5 +1,5 @@
 package dgh.game.items;
-//asdf
+//banana and pickel
 import dgh.game.Game;
 
 public class EquipmentSlot {
