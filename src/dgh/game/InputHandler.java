@@ -35,6 +35,11 @@ public class InputHandler implements KeyListener {
     public Key i = new Key();
     public Key c = new Key();
     public Key esc = new Key();
+    public Key one = new Key();
+    public Key two = new Key();
+    public Key three = new Key();
+    public Key four = new Key();
+    public Key five = new Key();
 
     public void keyPressed(KeyEvent e) {
         toggleKey(e.getKeyCode(), true);
@@ -71,6 +76,21 @@ public class InputHandler implements KeyListener {
         }
         if(keyCode == KeyEvent.VK_ESCAPE) {
         	esc.toggle(isPressed);
+        }
+        if(keyCode == KeyEvent.VK_1) {
+        	one.toggle(isPressed);
+        }
+        if(keyCode == KeyEvent.VK_2) {
+        	two.toggle(isPressed);
+        }
+        if(keyCode == KeyEvent.VK_3) {
+        	three.toggle(isPressed);
+        }
+        if(keyCode == KeyEvent.VK_4) {
+        	four.toggle(isPressed);
+        }
+        if(keyCode == KeyEvent.VK_5) {
+        	five.toggle(isPressed);
         }
     }
 }

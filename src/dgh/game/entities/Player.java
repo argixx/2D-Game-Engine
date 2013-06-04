@@ -11,10 +11,16 @@ import dgh.game.gfx.Screen;
 import dgh.game.level.Level;
 import dgh.game.level.tiles.Tile;
 import dgh.game.net.packets.Packet02Move;
+import dgh.game.spells.Spell;
+import dgh.game.spells.SpellArcanestorm;
+import dgh.game.spells.SpellFireball;
+import dgh.game.spells.SpellHeal;
+import dgh.game.spells.SpellIceshard;
+import dgh.game.spells.SpellTeleport;
 
 public class Player extends Mob {
 
-    private InputHandler input;
+	private InputHandler input;
     private int colour = Colors.get(-1, 111, 145, 543);
     private int scale = 1;
     protected boolean isSwimming = false;
@@ -23,6 +29,9 @@ public class Player extends Mob {
     public Inventory inventory;
     public int hp = 100;
     private int floorDepth = 1;
+    private Spell activeSpell;
+    private int spellNumber = 1;
+    public int maxhp = 100;
     
     public int strength = 0;
     public int endurance = 0;
@@ -61,7 +70,7 @@ public class Player extends Mob {
                 xa++;
             }
             if(input.space.isPressed()) {
-            	
+            	activeSpell.activate(level);
             }
             if(input.i.isPressed()) {
             	//render inventory
@@ -73,6 +82,7 @@ public class Player extends Mob {
             	//options
             	//possibly not options and instead it 
             }
+            maxhp = 100 + (10*endurance);
         }
         
         
@@ -208,4 +218,42 @@ public class Player extends Mob {
 	public boolean touchesEntity(Entity entity, Level level) {
 		return false;
 	}
+	
+	public void spellTick() {
+		
+		if(input.one.isPressed()) {
+        	spellNumber = 1;
+        }
+		if(input.two.isPressed()) {
+        	spellNumber = 2;
+        }
+		if(input.three.isPressed()) {
+        	spellNumber = 3;
+        }
+		if(input.four.isPressed()) {
+        	spellNumber = 4;
+        }
+		if(input.five.isPressed()) {
+        	spellNumber = 5;
+        }
+		if(spellNumber == 1) {
+			activeSpell = new SpellHeal();
+		}
+		if(spellNumber == 2) {
+			activeSpell = new SpellFireball();
+		}
+		if(spellNumber == 3) {
+			activeSpell = new SpellIceshard();
+		}
+		if(spellNumber == 4) {
+			activeSpell = new SpellTeleport();
+		}
+		if(spellNumber == 5) {
+			activeSpell = new SpellArcanestorm();
+		}
+	}
+	
+	public int getMovingDir() {
+        return movingDir;
+    }
 }
