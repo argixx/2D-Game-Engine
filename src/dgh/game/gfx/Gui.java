@@ -25,8 +25,8 @@ public class Gui {
 		}
 	}
 	
-	public void render(Graphics g) {
-		g.drawImage(gui, renderX, renderY, null);
+	public BufferedImage getImage() {
+		return gui;
 	}
 	
 	public void tick() {

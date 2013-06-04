@@ -38,7 +38,6 @@ public class ItemEntity extends Entity {
 		}
 	}
 
-	@Override
 	public boolean touchesPlayer(Player player, Level level) {
 		for(int xx = 0; xx < 8; xx++) {
 			for(int yy = 0; yy < 8; yy++) {
@@ -47,6 +46,10 @@ public class ItemEntity extends Entity {
 				}
 			}
 		}
+		return false;
+	}
+
+	public boolean touchesEntity(Entity entity, Level level) {
 		return false;
 	}
 }

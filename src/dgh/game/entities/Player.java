@@ -22,7 +22,6 @@ public class Player extends Mob {
     private String username;
     public Inventory inventory;
     public int hp = 100;
-    private Graphics g = null;
     private int floorDepth = 1;
     
     public int strength = 0;
@@ -65,16 +64,14 @@ public class Player extends Mob {
             	
             }
             if(input.i.isPressed()) {
-            	Game.playerHud.showInventory = true;
-            	Game.playerHud.showEquip = false;
+            	//render inventory
             }
             if(input.c.isPressed()) {
-            	Game.playerHud.showEquip = true;
-            	Game.playerHud.showInventory = false;
+            	//render character screen
             }
             if(input.esc.isPressed()) {
-            	Game.playerHud.showEquip = false;
-            	Game.playerHud.showInventory = false;
+            	//options
+            	//possibly not options and instead it 
             }
         }
         
@@ -204,6 +201,11 @@ public class Player extends Mob {
     }
 
 	public boolean touchesPlayer(Player player, Level level) {
+		return false;
+	}
+
+	@Override
+	public boolean touchesEntity(Entity entity, Level level) {
 		return false;
 	}
 }

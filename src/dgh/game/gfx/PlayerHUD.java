@@ -19,19 +19,15 @@ public class PlayerHUD {
 	public boolean showEquip = false;
 
 	public PlayerHUD() {
-		
 	}
 	
 	public void render(Graphics g, Screen screen) {
 		if (showInventory) {
-			InventoryGui.render(g);
-			for(Item item: Game.player.inventory.itemList) {
-				//render sprites somehow
-			}
+			
 		}
 		
 		if(showEquip) {
-			EquipmentGui.render(g);
+			
 		}
 	}
 	

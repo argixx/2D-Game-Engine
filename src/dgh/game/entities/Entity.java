@@ -21,4 +21,6 @@ public abstract class Entity {
 	public abstract void render(Screen screen);
 	
 	public abstract boolean touchesPlayer(Player player, Level level);
+	
+	public abstract boolean touchesEntity(Entity entity, Level level);
 }

@@ -9,6 +9,7 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 
+import dgh.game.Game;
 import dgh.game.entities.Entity;
 import dgh.game.entities.EntityZombie;
 import dgh.game.entities.PlayerMP;
@@ -22,31 +23,34 @@ public class Level {
     public int width;
     public int height;
     private List<Entity> entities = new ArrayList<Entity>();
-    private String imagePath;
+    public String imagePath;
     private BufferedImage image;
     private Random rand = new Random();
     public int mapId = 1;
+    public int levelDepth = 1;
 
     public Level(String imagePath) {
         if (imagePath != null) {
             this.imagePath = imagePath;
             this.loadLevelFromFile();
         } else {
-            this.width = 128;
-            this.height = 128;
+            this.width = 140;
+            this.height = 180;
             tiles = new byte[width * height];
             this.generateLevel();
         }
     }
     
     public void init() {
-    	 for(int i = 0; i < 5; i++) {
-    		 int j = rand.nextInt((width - 1) * 8);
-    		 int k = rand.nextInt((height - 1) * 8);
-    		 if(getTile(j, k).getId() != Tile.WALLTILE.getId()) {
-    			 //addEntity(new EntityZombie(this, j, j, 72)); 
-    		 }
-         }
+    	if(levelDepth == 1) {
+    		 for(int i = 0; i < 50; i++) {
+        		 int j = rand.nextInt(width - 1);
+        		 int k = rand.nextInt(height - 1);
+        		 if(getTile(i, j).getId() == Tile.FLOORTILE.getId()) {
+        			 addEntity(new EntityZombie(this, i << 3, j << 3, 72)); 
+        		 }
+             }
+    	}
     }
 
     private void loadLevelFromFile() {

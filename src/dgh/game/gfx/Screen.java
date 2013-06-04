@@ -1,5 +1,8 @@
 package dgh.game.gfx;
 
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+
 public class Screen {
 
     public static final int MAP_WIDTH = 64;
@@ -24,6 +27,10 @@ public class Screen {
         this.sheet = sheet;
 
         pixels = new int[width * height];
+    }
+    
+    public void renderGraphicsImage(int xPos, int yPos, BufferedImage image, Graphics g) {
+    	g.drawImage(image, xPos, yPos, null);
     }
 
     public void render(int xPos, int yPos, int tile, int colour, int mirrorDir, int scale) {

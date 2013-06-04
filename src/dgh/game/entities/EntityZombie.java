@@ -199,4 +199,8 @@ public class EntityZombie extends Mob {
 		}
 		return false;
 	}
+
+	public boolean touchesEntity(Entity entity, Level level) {
+		return false;
+	}
 }
