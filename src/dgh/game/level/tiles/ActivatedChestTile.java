@@ -62,8 +62,6 @@ public class ActivatedChestTile extends ActivatedTile {
 	}
 	
 	public void randomizeLoot() {
-		for(int j = 0; j < 25; j++) {
-			inventory.add(new ItemAxe("Axe", 0, 3, Colors.get(-1, 234, 432, -1)));
-		}
+		
 	}
 }

@@ -13,9 +13,6 @@ import dgh.game.level.Level;
 
 public class PlayerHUD {
 	
-	private Gui InventoryGui = new Gui("res/Gui/PlayerInventory.png", 25, 25);
-	private Gui EquipmentGui = new Gui("res/Gui/EquipmentGui.png", 25, 25);
-	
 	public boolean showInventory = false;
 	public boolean showEquip = false;
 

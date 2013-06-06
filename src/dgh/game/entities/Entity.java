@@ -4,7 +4,7 @@ import dgh.game.gfx.Screen;
 import dgh.game.level.Level;
 
 public abstract class Entity {
-
+	
 	public int x, y;
 	protected Level level;
 

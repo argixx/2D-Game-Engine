@@ -9,7 +9,9 @@ import dgh.game.gfx.Colors;
 import dgh.game.gfx.Font;
 import dgh.game.gfx.Screen;
 import dgh.game.items.EquipmentSlot;
+import dgh.game.items.Item;
 import dgh.game.items.ItemAxe;
+import dgh.game.items.ItemBronzeAxe;
 import dgh.game.level.Level;
 import dgh.game.level.tiles.Tile;
 import dgh.game.net.packets.Packet02Move;
@@ -53,14 +55,16 @@ public class Player extends Mob {
         this.input = input;
         this.username = username;
         inventory = new Inventory(30);
-        for(int i = 0; i < 30; i++) {
-        	inventory.add(new ItemAxe("Axe", 0, 3, Colors.get(-1, 234, 432, -1)));
-        }
+        
         activeSpell = new SpellHeal();
         
         armorSlot = new EquipmentSlot(100, 100);
         weaponSlot = new EquipmentSlot(100, 108);
         shieldSlot = new EquipmentSlot(100, 116);
+        
+        inventory.add(Item.BronzeAxe);
+        inventory.add(Item.BronzeArmor);
+        inventory.add(Item.BronzeShield);
     }
     
     public int getDepth() {
