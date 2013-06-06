@@ -50,10 +50,14 @@ public class InputHandler implements KeyListener {
         	Game.playerHud.showInventory = Game.playerHud.showInventory ? false:true;
         }
         if(e.getKeyCode() == KeyEvent.VK_E) {
-        	if(Game.player.curTile.isActivateable()) {
-        		Game.player.curTile.activate();
+        	if(!Game.playerHud.showInventory) {
+        		if(Game.player.curTile.isActivateable()) {
+            		Game.player.curTile.activate();
+            	}
         	}
         }
+        
+        playerInventoryNavigation(e);
     }
 
     public void keyReleased(KeyEvent e) {
@@ -61,6 +65,60 @@ public class InputHandler implements KeyListener {
     }
 
     public void keyTyped(KeyEvent e) {
+    }
+    
+    public void playerInventoryNavigation(KeyEvent e) {
+    	if(Game.playerHud.showInventory) {
+    		if(e.getKeyCode() == KeyEvent.VK_F) {
+        		Game.player.inventory.itemList.get(Game.player.inventory.selectedItem).use();
+        		Game.player.inventory.itemList.remove(Game.player.inventory.selectedItem);
+        	}
+        	
+        	if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+        		if(Game.player.inventory.selectedItem == 0) {
+        			Game.player.inventory.inventoryY = 2;
+        			Game.player.inventory.inventoryX = 10;
+        		}
+        		if(Game.player.inventory.selectedItem == 10) {
+        			Game.player.inventory.inventoryY = 0;
+        			Game.player.inventory.inventoryX = 10;
+        		}
+        		if(Game.player.inventory.selectedItem == 20) {
+        			Game.player.inventory.inventoryY = 1;
+        			Game.player.inventory.inventoryX = 10;
+        		}
+        		
+        		Game.player.inventory.inventoryX--;
+        		if(Game.player.inventory.selectedItem == 0) {
+        			Game.player.inventory.selectedItem = 29;
+        		} else {
+        			Game.player.inventory.selectedItem--;
+        		}
+        	}
+        	
+        	if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+        		if(Game.player.inventory.selectedItem == 9) {
+        			Game.player.inventory.inventoryY = 1;
+        			Game.player.inventory.inventoryX = -1;
+        		}
+        		if(Game.player.inventory.selectedItem == 19) {
+        			Game.player.inventory.inventoryY = 2;
+        			Game.player.inventory.inventoryX = -1;
+        		}
+        		if(Game.player.inventory.selectedItem == 29) {
+        			Game.player.inventory.inventoryY = 0;
+        			Game.player.inventory.inventoryX = -1;
+        		}
+        		
+        		Game.player.inventory.inventoryX++;
+        		if(Game.player.inventory.selectedItem == 29) {
+        			Game.player.inventory.selectedItem = 0;
+        		} else {
+        			Game.player.inventory.selectedItem++;
+        		}
+        	}
+    	}
+    	
     }
 
     public void toggleKey(int keyCode, boolean isPressed) {

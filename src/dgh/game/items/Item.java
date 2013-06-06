@@ -47,6 +47,10 @@ public class Item {
 		player.inventory.add(this);
 	}
 	
+	public void use() {
+		
+	}
+	
 	public String getName() {
 		return name;
 	}

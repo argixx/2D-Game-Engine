@@ -11,9 +11,16 @@ public class Inventory {
 	private int max;
 	private boolean isFull = false;
 	private boolean isEmpty = false;
+	public int selectedItem = 0;
+	public int inventoryX = 0;
+	public int inventoryY = 0;
 	
 	public Inventory(int max) {
 		this.max = max;
+	}
+	
+	public int getSelectedItem() {
+		return selectedItem;
 	}
 	
 	public void add(Item item) {

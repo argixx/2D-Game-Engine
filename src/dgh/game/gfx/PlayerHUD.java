@@ -34,6 +34,11 @@ public class PlayerHUD {
 				}
 			}
 			
+			screen.render(screen.xOffset + 25 + (Game.player.inventory.inventoryX * 12), screen.yOffset + 10 + (Game.player.inventory.inventoryY * 12), 30 + 0 * 32, Colors.get(-1, 555, 222, -1), 0x00, 1);
+			screen.render(screen.xOffset + 33 + (Game.player.inventory.inventoryX * 12), screen.yOffset + 10 + (Game.player.inventory.inventoryY * 12), 31 + 0 * 32, Colors.get(-1, 555, 222, -1), 0x00, 1);
+			screen.render(screen.xOffset + 25 + (Game.player.inventory.inventoryX * 12), screen.yOffset + 18 + (Game.player.inventory.inventoryY * 12), 30 + 1 * 32, Colors.get(-1, 555, 222, -1), 0x00, 1);
+			screen.render(screen.xOffset + 33 + (Game.player.inventory.inventoryX * 12), screen.yOffset + 18 + (Game.player.inventory.inventoryY * 12), 31 + 1 * 32, Colors.get(-1, 555, 222, -1), 0x00, 1);
+			
 			int itemX = 0;
 			int itemY = 0;
 			int itemCount = 0;

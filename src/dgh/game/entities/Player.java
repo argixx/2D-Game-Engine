@@ -8,6 +8,7 @@ import dgh.game.InputHandler;
 import dgh.game.gfx.Colors;
 import dgh.game.gfx.Font;
 import dgh.game.gfx.Screen;
+import dgh.game.items.EquipmentSlot;
 import dgh.game.items.ItemAxe;
 import dgh.game.level.Level;
 import dgh.game.level.tiles.Tile;
@@ -41,6 +42,10 @@ public class Player extends Mob {
     
     private int guiTimer = 0;
     
+    public EquipmentSlot armorSlot;
+    public EquipmentSlot weaponSlot;
+    public EquipmentSlot shieldSlot;
+    
     public Tile curTile;
 
     public Player(Level level, int x, int y, InputHandler input, String username) {
@@ -51,6 +56,11 @@ public class Player extends Mob {
         for(int i = 0; i < 30; i++) {
         	inventory.add(new ItemAxe("Axe", 0, 3, Colors.get(-1, 234, 432, -1)));
         }
+        activeSpell = new SpellHeal();
+        
+        armorSlot = new EquipmentSlot(100, 100);
+        weaponSlot = new EquipmentSlot(100, 108);
+        shieldSlot = new EquipmentSlot(100, 116);
     }
     
     public int getDepth() {
@@ -66,9 +76,12 @@ public class Player extends Mob {
         int ya = 0;
         
         //System.out.println("Health Points: " + hp);
+        System.out.println(agility + " agility");
+        System.out.println(endurance + " endurance");
+        System.out.println(intelligence + " intelligence");
+        System.out.println(strength + " strength");
         
         curTile = level.getTile(this.x >> 3, this.y >> 3);
-        System.out.println(curTile.getId());
         if (input != null) {
             if (input.up.isPressed()) {
                 ya--;
@@ -88,10 +101,15 @@ public class Player extends Mob {
             if(input.esc.isPressed()) {
             	//options
             }
-            maxhp = 100 + (10*endurance);
-            
-            System.out.println(guiTimer);
         }
+        
+        maxhp = 100 + (10*endurance);
+        
+        spellTick();
+        
+        armorSlot.tick();
+        weaponSlot.tick();
+        shieldSlot.tick();
         
         
         if (xa != 0 || ya != 0) {
@@ -184,6 +202,10 @@ public class Player extends Mob {
             Font.render(username, screen, xOffset - ((username.length() - 1) / 2 * 8), yOffset - 10,
                     Colors.get(-1, -1, -1, 555), 1);
         }
+        
+        armorSlot.render(screen);
+        weaponSlot.render(screen);
+        shieldSlot.render(screen);
     }
 
     public boolean hasCollided(int xa, int ya) {

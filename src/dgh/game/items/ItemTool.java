@@ -28,6 +28,11 @@ public class ItemTool extends Item {
 	public void render(Screen screen, int xPos, int yPos) {
 		screen.render(xPos << 3, yPos << 3, this.xSprite + this.ySprite * 32, this.color, 0x00, 1);
 	}
+	
+	@Override
+	public void use() {
+		
+	}
 
 	public void tick() {
 
