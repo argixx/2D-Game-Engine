@@ -21,9 +21,7 @@ public class EquipmentSlot {
 	}
 	
 	public void tick() {
-		if(equipedItem != null) {
-			System.out.println(equipedItem.getName());
-		}
+		
 	}
 	
 	public void render(Screen screen) {

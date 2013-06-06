@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import dgh.game.level.tiles.Tile;
+import dgh.game.sound.Sound;
 
 public class InputHandler implements KeyListener {
 
@@ -72,6 +73,7 @@ public class InputHandler implements KeyListener {
     		if(e.getKeyCode() == KeyEvent.VK_F) {
         		Game.player.inventory.itemList.get(Game.player.inventory.selectedItem).use();
         		Game.player.inventory.itemList.remove(Game.player.inventory.selectedItem);
+        		Sound.test.play();
         	}
         	
         	if(e.getKeyCode() == KeyEvent.VK_LEFT) {

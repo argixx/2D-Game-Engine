@@ -76,10 +76,6 @@ public class Player extends Mob {
         int ya = 0;
         
         //System.out.println("Health Points: " + hp);
-        System.out.println(agility + " agility");
-        System.out.println(endurance + " endurance");
-        System.out.println(intelligence + " intelligence");
-        System.out.println(strength + " strength");
         
         curTile = level.getTile(this.x >> 3, this.y >> 3);
         if (input != null) {
