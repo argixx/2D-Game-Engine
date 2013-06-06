@@ -1,0 +1,18 @@
+**HexValues for Tiles**
+--------------------------------------------------------------------------------------------------------------------
+Alphabatized*
+                            ----R,G,B----
+Name             ((Black)(DarkGray)(LightGray)(White))
+
+Player Armor = 0 ((-1)(0,0,0)(0,204,255)(204,255,153)) Standard Blue Shirt
+Player Armor = 1 ((-1)(0,0,0)(153,153,153)(204,255,153)) Gray Mail Suit
+	Sprite   ((-1)(0,0,0)(153,153,153)(-1))
+
+Blue Tile/Wall   ((0,0,153)(0,0,153)(0,0,51)(153,153,255)
+Red Tile/Wall    ((
+Green Tile/Wall  ((
+
+
+
+
+Fireball/Impact  ((-1)(-1)(204,102,0)(204,255,102))

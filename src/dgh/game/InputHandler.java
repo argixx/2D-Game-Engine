@@ -51,9 +51,7 @@ public class InputHandler implements KeyListener {
         }
         if(e.getKeyCode() == KeyEvent.VK_E) {
         	if(Game.player.curTile.isActivateable()) {
-        		if(Game.player.curTile.getId() == Tile.CHEST.getId()) {
-        			Game.player.curTile.activate();
-        		}
+        		Game.player.curTile.activate();
         	}
         }
     }
