@@ -12,14 +12,17 @@ public abstract class Tile {
     public static final Tile WALLTILE = new BasicSolidTile(2, 2, 0, Colors.get(001, 003, 000, 023), 0xFF0000FF);
     public static final Tile WATER = new AnimatedTile(3, new int[][] { { 0, 5 }, { 1, 5 }, { 2, 5 }, { 1, 5 } },
             Colors.get(-1, 004, 115, -1), 0xFFFFFF00, 1000);
+    public static final Tile CHEST = new ActivatedChestTile(4, 2, 0, Colors.get(500, 500, 500, 500), 0xFFFF0000);
     
     protected byte id;
     protected boolean solid;
     protected boolean emitter;
     protected boolean item;
+    protected boolean activateable;
+    protected boolean activated;
     private int levelColour;
 
-    public Tile(int id, boolean isSolid, boolean isEmitter, boolean isItem, int levelColour) {
+    public Tile(int id, boolean isSolid, boolean isEmitter, boolean isItem, boolean activateable, int levelColour) {
         this.id = (byte) id;
         if (tiles[id] != null)
             throw new RuntimeException("Duplicate tile id on " + id);
@@ -46,6 +49,18 @@ public abstract class Tile {
     	return item;
     }
     
+    public boolean isActivateable() {
+    	return activateable;
+    }
+    
+    public boolean isActivated() {
+    	return activated;
+    }
+    
+    public void setActivated(boolean activated) {
+    	this.activated = activated;
+    }
+    
     public void setHasItem(boolean hasItem) {
     	this.item = hasItem;
     }
@@ -57,4 +72,8 @@ public abstract class Tile {
     public abstract void tick();
 
     public abstract void render(Screen screen, Level level, int x, int y);
+    
+    public void activate() {
+    	
+    }
 }

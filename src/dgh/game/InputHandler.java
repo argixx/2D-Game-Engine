@@ -3,6 +3,8 @@ package dgh.game;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import dgh.game.level.tiles.Tile;
+
 public class InputHandler implements KeyListener {
 
     public InputHandler(Game game) {
@@ -43,8 +45,16 @@ public class InputHandler implements KeyListener {
 
     public void keyPressed(KeyEvent e) {
         toggleKey(e.getKeyCode(), true);
+        
         if(e.getKeyCode() == KeyEvent.VK_I) {
         	Game.playerHud.showInventory = Game.playerHud.showInventory ? false:true;
+        }
+        if(e.getKeyCode() == KeyEvent.VK_E) {
+        	if(Game.player.curTile.isActivateable()) {
+        		if(Game.player.curTile.getId() == Tile.CHEST.getId()) {
+        			Game.player.curTile.activate();
+        		}
+        	}
         }
     }
 
@@ -56,16 +66,16 @@ public class InputHandler implements KeyListener {
     }
 
     public void toggleKey(int keyCode, boolean isPressed) {
-        if (keyCode == KeyEvent.VK_W || keyCode == KeyEvent.VK_UP) {
+        if (keyCode == KeyEvent.VK_W) {
             up.toggle(isPressed);
         }
-        if (keyCode == KeyEvent.VK_S || keyCode == KeyEvent.VK_DOWN) {
+        if (keyCode == KeyEvent.VK_S) {
             down.toggle(isPressed);
         }
-        if (keyCode == KeyEvent.VK_A || keyCode == KeyEvent.VK_LEFT) {
+        if (keyCode == KeyEvent.VK_A) {
             left.toggle(isPressed);
         }
-        if (keyCode == KeyEvent.VK_D || keyCode == KeyEvent.VK_RIGHT) {
+        if (keyCode == KeyEvent.VK_D) {
             right.toggle(isPressed);
         }
         if(keyCode == KeyEvent.VK_SPACE) {

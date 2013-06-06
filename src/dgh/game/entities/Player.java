@@ -40,6 +40,8 @@ public class Player extends Mob {
     public int intelligence = 0;
     
     private int guiTimer = 0;
+    
+    public Tile curTile;
 
     public Player(Level level, int x, int y, InputHandler input, String username) {
         super(level, "Player", x, y, 1);
@@ -54,6 +56,10 @@ public class Player extends Mob {
     public int getDepth() {
     	return floorDepth;
     }
+    
+    public void setIsMoving(boolean isMoving) {
+    	this.isMoving = isMoving;
+    }
 
     public void tick() {
         int xa = 0;
@@ -61,7 +67,8 @@ public class Player extends Mob {
         
         //System.out.println("Health Points: " + hp);
         
-        Tile curTile = level.getTile(this.x >> 3, this.y >> 3);
+        curTile = level.getTile(this.x >> 3, this.y >> 3);
+        System.out.println(curTile.getId());
         if (input != null) {
             if (input.up.isPressed()) {
                 ya--;
@@ -78,16 +85,8 @@ public class Player extends Mob {
             if(input.space.isPressed()) {
             	activeSpell.activate(level);
             }
-            if(input.i.isPressed()) {
-            	
-            }
-            if(input.c.isPressed()) {
-            	//render character screen
-            }
             if(input.esc.isPressed()) {
-            	Game.playerHud.showInventory = false;
             	//options
-            	//possibly not options and instead it 
             }
             maxhp = 100 + (10*endurance);
             
