@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 
 import dgh.game.Game;
 import dgh.game.items.Item;
+import dgh.game.level.Level;
 
 public class PlayerHUD {
 	
@@ -21,9 +22,30 @@ public class PlayerHUD {
 	public PlayerHUD() {
 	}
 	
-	public void render(Graphics g, Screen screen) {
+	public void render(Screen screen) {
 		if (showInventory) {
+			for(int i = 0; i < 10; i++) {
+				for(int j = 0; j < 3; j++) {
+					screen.render(screen.xOffset + 25 + (i * 12), screen.yOffset + 25 + (j * 12), 30 + 0 * 32, Colors.get(-1, 111, 222, -1), 0x00, 1);
+					screen.render(screen.xOffset + 33 + (i * 12), screen.yOffset + 25 + (j * 12), 31 + 0 * 32, Colors.get(-1, 111, 222, -1), 0x00, 1);
+					screen.render(screen.xOffset + 25 + (i * 12), screen.yOffset + 33 + (j * 12), 30 + 1 * 32, Colors.get(-1, 111, 222, -1), 0x00, 1);
+					screen.render(screen.xOffset + 33 + (i * 12), screen.yOffset + 33 + (j * 12), 31 + 1 * 32, Colors.get(-1, 111, 222, -1), 0x00, 1);
+				}
+			}
 			
+			int itemX = 0;
+			int itemY = 0;
+			int itemCount = 0;
+			
+			for(Item item : Game.player.inventory.itemList) {
+				itemCount++;
+				screen.render(screen.xOffset + 30 + (itemX * 12), screen.yOffset + 27 + (itemY * 12), item.xSprite() + item.ySprite() * 32, item.color(), 0x00, 1);
+				itemX++;
+				if(itemCount == 10 || itemCount == 20 || itemCount == 30) {
+					itemY++;
+					itemX = 0;
+				}
+			}
 		}
 		
 		if(showEquip) {

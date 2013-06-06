@@ -91,7 +91,7 @@ public class Game extends Canvas implements Runnable {
         player = new PlayerMP(level, 100, 100, input, JOptionPane.showInputDialog(this, "Please enter a username"),
                 null, -1);
         playerHud = new PlayerHUD();
-        itemAxe = new ItemEntity(level, new ItemAxe("Axe", 0, 3, Colors.get(-1, 345, 435, -1)), 2, 1);
+        itemAxe = new ItemEntity(level, new ItemAxe("Axe", 0, 3, Colors.get(-1, 345, 435, -1)), 5, 5);
         Random rand = new Random();
         level.init();
         level.addEntity(itemAxe);
@@ -191,13 +191,16 @@ public class Game extends Canvas implements Runnable {
             createBufferStrategy(3);
             return;
         }
-
+        
+        Graphics g = bs.getDrawGraphics();
+        
         int xOffset = player.x - (screen.width / 2);
         int yOffset = player.y - (screen.height / 2);
         
 
         level.renderTiles(screen, xOffset, yOffset);
         level.renderEntities(screen);
+        playerHud.render(screen);
 
         for (int y = 0; y < screen.height; y++) {
             for (int x = 0; x < screen.width; x++) {
@@ -206,10 +209,8 @@ public class Game extends Canvas implements Runnable {
                     pixels[x + y * WIDTH] = colours[colourCode];
             }
         }
-
-        Graphics g = bs.getDrawGraphics();
+        
         g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
-        playerHud.render(g, screen);
         g.dispose();
         bs.show();
     }

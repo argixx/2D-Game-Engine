@@ -1,7 +1,13 @@
 package dgh.game.gfx;
 
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class Screen {
 
@@ -20,6 +26,7 @@ public class Screen {
     public int height;
 
     public SpriteSheet sheet;
+    public SpriteSheet nextSheet;
 
     public Screen(int width, int height, SpriteSheet sheet) {
         this.width = width;
@@ -27,10 +34,6 @@ public class Screen {
         this.sheet = sheet;
 
         pixels = new int[width * height];
-    }
-    
-    public void renderGraphicsImage(int xPos, int yPos, BufferedImage image, Graphics g) {
-    	g.drawImage(image, xPos, yPos, null);
     }
 
     public void render(int xPos, int yPos, int tile, int colour, int mirrorDir, int scale) {
@@ -71,7 +74,11 @@ public class Screen {
             }
         }
     }
-
+    
+    public void renderSheet(SpriteSheet sheet, int xPos, int yPos, int tile, int colour, int mirrorDir, int scale) {
+    	
+    }
+   
     public void setOffset(int xOffset, int yOffset) {
         this.xOffset = xOffset;
         this.yOffset = yOffset;

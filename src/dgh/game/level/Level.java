@@ -44,10 +44,10 @@ public class Level {
     public void init() {
     	if(levelDepth == 1) {
     		 for(int i = 0; i < 50; i++) {
-        		 int j = rand.nextInt(width - 1);
-        		 int k = rand.nextInt(height - 1);
-        		 if(getTile(i, j).getId() == Tile.FLOORTILE.getId()) {
-        			 addEntity(new EntityZombie(this, i << 3, j << 3, 72)); 
+        		 int j = rand.nextInt(200 - 1);
+        		 int k = rand.nextInt(200 - 1);
+        		 if(getTile(j, k).getId() == Tile.FLOORTILE.getId()) {
+        			 addEntity(new EntityZombie(this, j << 3, k << 3, 72)); 
         		 }
              }
     	}

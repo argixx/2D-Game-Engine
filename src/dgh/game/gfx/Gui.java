@@ -12,7 +12,7 @@ public class Gui {
 	
 	private String filePath;
 	private int renderX, renderY;
-	private BufferedImage gui;
+	private Image gui;
 
 	public Gui(String filePath, int renderX, int renderY) {
 		this.filePath = filePath;
@@ -25,8 +25,12 @@ public class Gui {
 		}
 	}
 	
-	public BufferedImage getImage() {
+	public Image getImage() {
 		return gui;
+	}
+	
+	public String getImagePath() {
+		return filePath;
 	}
 	
 	public void tick() {

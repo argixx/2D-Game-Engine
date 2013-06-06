@@ -8,6 +8,7 @@ import dgh.game.InputHandler;
 import dgh.game.gfx.Colors;
 import dgh.game.gfx.Font;
 import dgh.game.gfx.Screen;
+import dgh.game.items.ItemAxe;
 import dgh.game.level.Level;
 import dgh.game.level.tiles.Tile;
 import dgh.game.net.packets.Packet02Move;
@@ -43,6 +44,9 @@ public class Player extends Mob {
         this.input = input;
         this.username = username;
         inventory = new Inventory(30);
+        for(int i = 0; i < 30; i++) {
+        	inventory.add(new ItemAxe("Axe", 0, 3, Colors.get(-1, 234, 432, -1)));
+        }
     }
     
     public int getDepth() {
@@ -73,12 +77,13 @@ public class Player extends Mob {
             	activeSpell.activate(level);
             }
             if(input.i.isPressed()) {
-            	//render inventory
+            	Game.playerHud.showInventory = true;
             }
             if(input.c.isPressed()) {
             	//render character screen
             }
             if(input.esc.isPressed()) {
+            	Game.playerHud.showInventory = false;
             	//options
             	//possibly not options and instead it 
             }
