@@ -38,6 +38,8 @@ public class Player extends Mob {
     public int endurance = 0;
     public int agility = 0;
     public int intelligence = 0;
+    
+    private int guiTimer = 0;
 
     public Player(Level level, int x, int y, InputHandler input, String username) {
         super(level, "Player", x, y, 1);
@@ -77,7 +79,7 @@ public class Player extends Mob {
             	activeSpell.activate(level);
             }
             if(input.i.isPressed()) {
-            	Game.playerHud.showInventory = true;
+            	
             }
             if(input.c.isPressed()) {
             	//render character screen
@@ -88,6 +90,8 @@ public class Player extends Mob {
             	//possibly not options and instead it 
             }
             maxhp = 100 + (10*endurance);
+            
+            System.out.println(guiTimer);
         }
         
         

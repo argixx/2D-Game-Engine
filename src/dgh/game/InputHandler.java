@@ -43,6 +43,9 @@ public class InputHandler implements KeyListener {
 
     public void keyPressed(KeyEvent e) {
         toggleKey(e.getKeyCode(), true);
+        if(e.getKeyCode() == KeyEvent.VK_I) {
+        	Game.playerHud.showInventory = Game.playerHud.showInventory ? false:true;
+        }
     }
 
     public void keyReleased(KeyEvent e) {
