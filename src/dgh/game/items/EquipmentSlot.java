@@ -26,7 +26,7 @@ public class EquipmentSlot {
 	
 	public void render(Screen screen) {
 		if(equipedItem != null) {
-			screen.render(screen.xOffset + xPos, screen.yOffset + yPos, equipedItem.xSprite() + equipedItem.ySprite() * 32, Colors.get(-1, 555, 555, -1), 0x00, 1);
+			screen.render(screen.xOffset + xPos, screen.yOffset + yPos, equipedItem.xSprite() + equipedItem.ySprite() * 32, equipedItem.color(), 0x00, 1);
 		}
 	}
 	

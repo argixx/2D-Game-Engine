@@ -48,10 +48,10 @@ public class Game extends Canvas implements Runnable {
     private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
     private int[] colours = new int[6 * 6 * 6];
 
-    private Screen screen;
+    public static Screen screen;
     public InputHandler input;
     public WindowHandler windowHandler;
-    public Level level;
+    public static Level level;
     public static Player player;
     public static EntityZombie zombie;
     public static PlayerHUD playerHud;

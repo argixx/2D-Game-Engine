@@ -20,14 +20,20 @@ public class Item {
 	protected String name;
 	protected int color;
 	
+	public static int bronzeColor = Colors.get(-1, 000, 430, -1);
+	public static int ironColor = Colors.get(-1, 000, 111, -1);
+	
 	protected int strength = 0;
 	protected int intelligence = 0;
 	protected int agility = 0;
 	protected int endurance = 0;
 	
-	public static final Item BronzeAxe = new ItemBronzeAxe("Bronze Axe", 0, 3, Colors.get(-1, 000, 430, -1));
-	public static final Item BronzeArmor = new ItemBronzeArmor("Bronze Armor", 8, 27, Colors.get(-1, 000, 430, -1));
-	public static final Item BronzeShield = new ItemBronzeShield("Bronze Shield", 7, 27, Colors.get(-1, 000, 430, -1));
+	public static final Item BronzeAxe = new ItemBronzeAxe("Bronze Axe", 0, 3, bronzeColor);
+	public static final Item BronzeArmor = new ItemBronzeArmor("Bronze Armor", 8, 27, bronzeColor);
+	public static final Item BronzeShield = new ItemBronzeShield("Bronze Shield", 7, 27, bronzeColor);
+	public static final Item IronAxe = new ItemBronzeAxe("Iron Axe", 0, 3, ironColor);
+	public static final Item IronArmor = new ItemBronzeArmor("Iron Armor", 8, 27, ironColor);
+	public static final Item IronShield = new ItemBronzeShield("Iron Shield", 7, 27, ironColor);
 
 	public Item(String name, int xSprite, int ySprite, int color) {
 		this.xSprite = xSprite;

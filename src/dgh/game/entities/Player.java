@@ -65,6 +65,9 @@ public class Player extends Mob {
         inventory.add(Item.BronzeAxe);
         inventory.add(Item.BronzeArmor);
         inventory.add(Item.BronzeShield);
+        inventory.add(Item.IronAxe);
+        inventory.add(Item.IronArmor);
+        inventory.add(Item.IronShield);
     }
     
     public int getDepth() {
