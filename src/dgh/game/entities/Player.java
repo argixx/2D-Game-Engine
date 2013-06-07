@@ -36,6 +36,7 @@ public class Player extends Mob {
     private Spell activeSpell;
     private int spellNumber = 1;
     public int maxhp = 100;
+    private int attackTimer = 20;
     
     public int strength = 0;
     public int endurance = 0;
@@ -114,6 +115,8 @@ public class Player extends Mob {
         weaponSlot.tick();
         shieldSlot.tick();
         
+        System.out.println(hp);
+        
         
         if (xa != 0 || ya != 0) {
             move(xa, ya);
@@ -140,8 +143,20 @@ public class Player extends Mob {
         			}
         		}
         	}
+        	
+        	if(e instanceof EntityZombie) {
+        		if(e.touchesPlayer(this, level)) {
+        			if(attackTimer == 0) {
+    	        		((EntityZombie) e).hp-= 1;
+    	        		attackTimer = 60;
+    	        	}
+    	        	
+    	        	if(attackTimer > 0) {
+    	        		attackTimer--;
+    	        	}
+        		}
+        	}
         }
-        
         tickCount++;
     }
 
@@ -249,6 +264,9 @@ public class Player extends Mob {
 
 	@Override
 	public boolean touchesEntity(Entity entity, Level level) {
+		if(x + 8 == entity.x + 8 && y + 8 == entity.y + 8) {
+			return true;
+		}
 		return false;
 	}
 	
@@ -289,4 +307,11 @@ public class Player extends Mob {
 	public int getMovingDir() {
         return movingDir;
     }
+	
+	public boolean isDead() {
+		if(hp <= 0) {
+        	return true;
+        } 
+		return false;
+	}
 }

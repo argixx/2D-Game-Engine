@@ -183,6 +183,13 @@ public class Game extends Canvas implements Runnable {
         tickCount++;
         level.tick();
         playerHud.tick();
+        if(player.isDead()) {
+        	level.getEntities().remove(player);
+        	player = new PlayerMP(level, 100, 100, input, JOptionPane.showInputDialog(this, "You Died Sucker, Start Over, Whats Your Name This Time?"),
+                    null, -1);
+        	player.hp = player.maxhp;
+        	level.getEntities().add(player);
+        }
     }
 
     public void render() {
