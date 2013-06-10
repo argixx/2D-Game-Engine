@@ -12,12 +12,14 @@ public class EquipmentSlot {
 	private int slotEndurance = 0;
 	private int slotAgility = 0;
 	private int slotIntelligence = 0;
+	private int num;
 	
 	private int xPos, yPos;
 
-	public EquipmentSlot(int xPos, int yPos) {
+	public EquipmentSlot(int num, int xPos, int yPos) {
 		this.xPos = xPos;
 		this.yPos = yPos;
+		this.num = num;
 	}
 	
 	public void tick() {
@@ -25,8 +27,41 @@ public class EquipmentSlot {
 	}
 	
 	public void render(Screen screen) {
-		if(equipedItem != null) {
-			screen.render(screen.xOffset + xPos, screen.yOffset + yPos, equipedItem.xSprite() + equipedItem.ySprite() * 32, equipedItem.color(), 0x00, 1);
+		if(Game.playerHud.showInventory) {
+			switch(num) {
+				case 1:
+					screen.render(screen.xOffset + xPos, screen.yOffset + yPos, 0 + 8 * 32, Colors.get(-1, 111, 555, -1), 0x00, 1);
+					screen.render(screen.xOffset + xPos + 8, screen.yOffset + yPos, 1 + 8 * 32, Colors.get(-1, 111, 555, -1), 0x00, 1);
+					screen.render(screen.xOffset + xPos, screen.yOffset + yPos + 8, 0 + 9 * 32, Colors.get(-1, 111, 555, -1), 0x00, 1);
+					screen.render(screen.xOffset + xPos + 8, screen.yOffset + yPos + 8, 1 + 9 * 32, Colors.get(-1, 111, 555, -1), 0x00, 1);
+				break;
+				
+				case 2:
+					screen.render(screen.xOffset + xPos, screen.yOffset + yPos, 2 + 8 * 32, Colors.get(-1, 111, 555, -1), 0x00, 1);
+					screen.render(screen.xOffset + xPos + 8, screen.yOffset + yPos, 3 + 8 * 32, Colors.get(-1, 111, 555, -1), 0x00, 1);
+					screen.render(screen.xOffset + xPos, screen.yOffset + yPos + 8, 2 + 9 * 32, Colors.get(-1, 111, 555, -1), 0x00, 1);
+					screen.render(screen.xOffset + xPos + 8, screen.yOffset + yPos + 8, 3 + 9 * 32, Colors.get(-1, 111, 555, -1), 0x00, 1);
+				break;
+				
+				case 3:
+					screen.render(screen.xOffset + xPos, screen.yOffset + yPos, 0 + 12 * 32, Colors.get(-1, 111, 555, -1), 0x00, 1);
+					screen.render(screen.xOffset + xPos + 8, screen.yOffset + yPos, 1 + 12 * 32, Colors.get(-1, 111, 555, -1), 0x00, 1);
+					screen.render(screen.xOffset + xPos, screen.yOffset + yPos + 8, 0 + 13 * 32, Colors.get(-1, 111, 555, -1), 0x00, 1);
+					screen.render(screen.xOffset + xPos + 8, screen.yOffset + yPos + 8, 1 + 13 * 32, Colors.get(-1, 111, 555, -1), 0x00, 1);
+				break;
+				
+				case 4:
+					screen.render(screen.xOffset + xPos, screen.yOffset + yPos, 2 + 12 * 32, Colors.get(-1, 111, 555, -1), 0x00, 1);
+					screen.render(screen.xOffset + xPos + 8, screen.yOffset + yPos, 3 + 12 * 32, Colors.get(-1, 111, 555, -1), 0x00, 1);
+					screen.render(screen.xOffset + xPos, screen.yOffset + yPos + 8, 2 + 13 * 32, Colors.get(-1, 111, 555, -1), 0x00, 1);
+					screen.render(screen.xOffset + xPos + 8, screen.yOffset + yPos + 8, 3 + 13 * 32, Colors.get(-1, 111, 555, -1), 0x00, 1);
+				break;
+	
+			}
+			
+			if(equipedItem != null) {
+				screen.render(screen.xOffset + xPos + 4, screen.yOffset + yPos + 4, equipedItem.xSprite() + equipedItem.ySprite() * 32, equipedItem.color(), 0x00, 1);
+			}
 		}
 	}
 	

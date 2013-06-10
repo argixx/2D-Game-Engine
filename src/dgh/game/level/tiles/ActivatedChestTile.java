@@ -22,13 +22,17 @@ public class ActivatedChestTile extends ActivatedTile {
 		inventory = new Inventory(30);
 		randomizeLoot();
 	}
+	
+	public int getColor() {
+		return this.tileColour;
+	}
 
 	public void tick() {
 		
 	}
 	
+	@Override
 	public void render(Screen screen, Level level, int x, int y) {
-		screen.render(x, y, tileId, tileColour, 0x00, 1);
 		if(isShowingInventory) {
 			for(int i = 0; i < 10; i++) {
 				for(int j = 0; j < 3; j++) {
@@ -36,7 +40,7 @@ public class ActivatedChestTile extends ActivatedTile {
 					screen.render(screen.xOffset + 33 + (i * 12), screen.yOffset + 60 + (j * 12), 31 + 0 * 32, Colors.get(-1, 111, 222, -1), 0x00, 1);
 					screen.render(screen.xOffset + 25 + (i * 12), screen.yOffset + 68 + (j * 12), 30 + 1 * 32, Colors.get(-1, 111, 222, -1), 0x00, 1);
 					screen.render(screen.xOffset + 33 + (i * 12), screen.yOffset + 68 + (j * 12), 31 + 1 * 32, Colors.get(-1, 111, 222, -1), 0x00, 1);
-					Font.render("Chest Inventory", screen, 28, 80, Colors.get(-1, -1, -1, 555), 1);
+					Font.render("Chest Inventory", screen, 28, 80, Colors.get(-1, -1, -1, 055), 1);
 				}
 			}
 			

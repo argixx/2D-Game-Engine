@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 
 import dgh.game.Game;
 import dgh.game.entities.Entity;
+import dgh.game.entities.EntityChest;
 import dgh.game.entities.EntityZombie;
 import dgh.game.entities.PlayerMP;
 import dgh.game.gfx.Screen;
@@ -42,6 +43,14 @@ public class Level {
     }
     
     public void init() {
+    	for(int i = 0; i < width; i++) {
+    		for(int j = 0; j < height; j++) {
+    			if(getTile(i, j).getId() == Tile.CHEST.getId()) {
+    				getEntities().add(new EntityChest(this, "Chest", (i << 3) - 4, (j << 3) - 4, 1));
+    			}
+    		}
+    	}
+    	
     	if(levelDepth == 1) {
     		 for(int i = 0; i < 50; i++) {
         		 int j = rand.nextInt(200 - 1);

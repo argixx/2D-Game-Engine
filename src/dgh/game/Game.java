@@ -55,7 +55,6 @@ public class Game extends Canvas implements Runnable {
     public static Player player;
     public static EntityZombie zombie;
     public static PlayerHUD playerHud;
-    public ItemEntity itemAxe;
 
     public GameClient socketClient;
     public GameServer socketServer;
@@ -91,10 +90,8 @@ public class Game extends Canvas implements Runnable {
         player = new PlayerMP(level, 100, 100, input, JOptionPane.showInputDialog(this, "Please enter a username"),
                 null, -1);
         playerHud = new PlayerHUD();
-        itemAxe = new ItemEntity(level, new ItemAxe("Axe", 0, 3, Colors.get(-1, 345, 435, -1)), 5, 5);
         Random rand = new Random();
         level.init();
-        level.addEntity(itemAxe);
         level.addEntity(player);
         
         

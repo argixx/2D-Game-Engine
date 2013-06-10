@@ -48,6 +48,7 @@ public class Player extends Mob {
     public EquipmentSlot armorSlot;
     public EquipmentSlot weaponSlot;
     public EquipmentSlot shieldSlot;
+    public EquipmentSlot runeSlot;
     
     public Tile curTile;
 
@@ -59,13 +60,17 @@ public class Player extends Mob {
         
         activeSpell = new SpellHeal();
         
-        armorSlot = new EquipmentSlot(100, 100);
-        weaponSlot = new EquipmentSlot(100, 108);
-        shieldSlot = new EquipmentSlot(100, 116);
+        armorSlot = new EquipmentSlot(1, 150, 8);
+        weaponSlot = new EquipmentSlot(2, 150, 20);
+        shieldSlot = new EquipmentSlot(3, 150, 32);
+        runeSlot = new EquipmentSlot(4, 150, 44);
         
+        inventory.add(Item.BronzeSword);
         inventory.add(Item.BronzeAxe);
         inventory.add(Item.BronzeArmor);
         inventory.add(Item.BronzeShield);
+        
+        inventory.add(Item.IronSword);
         inventory.add(Item.IronAxe);
         inventory.add(Item.IronArmor);
         inventory.add(Item.IronShield);
@@ -114,6 +119,7 @@ public class Player extends Mob {
         armorSlot.tick();
         weaponSlot.tick();
         shieldSlot.tick();
+        runeSlot.tick();
         
         System.out.println(hp);
         
@@ -224,6 +230,7 @@ public class Player extends Mob {
         armorSlot.render(screen);
         weaponSlot.render(screen);
         shieldSlot.render(screen);
+        runeSlot.render(screen);
     }
 
     public boolean hasCollided(int xa, int ya) {

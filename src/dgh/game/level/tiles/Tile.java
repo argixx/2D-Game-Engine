@@ -12,7 +12,7 @@ public abstract class Tile {
     public static final Tile WALLTILE = new BasicSolidTile(2, 2, 0, Colors.get(001, 003, 000, 023), 0xFF0000FF);
     public static final Tile WATER = new AnimatedTile(3, new int[][] { { 0, 5 }, { 1, 5 }, { 2, 5 }, { 1, 5 } },
             Colors.get(-1, 004, 115, -1), 0xFFFFFF00, 1000);
-    public static final Tile CHEST = new ActivatedChestTile(4, 2, 0, Colors.get(500, 500, 500, 500), 0xFFFF0000);
+    public static final Tile CHEST = new ActivatedChestTile(4, 0, 15, Colors.get(-1, 000, 210, -1), 0xFFFF0000);
     
     protected byte id;
     protected boolean solid;

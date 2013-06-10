@@ -49,6 +49,14 @@ public class PlayerHUD {
 					itemX = 0;
 				}
 			}
+			
+			if(Game.player.inventory.itemList.size() != 0) {
+				for(Item item : Game.player.inventory.itemList) {
+					if(Game.player.inventory.itemList.indexOf(item) == Game.player.inventory.selectedItem) {
+						item.renderToolTip(screen);
+					}
+				}
+			}
 		}
 		
 		if(showEquip) {
