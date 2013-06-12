@@ -1,18 +1,40 @@
 **HexValues for Tiles**
 --------------------------------------------------------------------------------------------------------------------
-Alphabatized*
-                            ----R,G,B----
-Name             ((Black)(DarkGray)(LightGray)(White))
+                                          ----R,G,B----
+Name                           ((Black)(DarkGray)(LightGray)(White))                      ITEM CODE
 
-Player Armor = 0 ((-1)(0,0,0)(0,204,255)(204,255,153)) Standard Blue Shirt
-Player Armor = 1 ((-1)(0,0,0)(153,153,153)(204,255,153)) Gray Mail Suit
-	Sprite   ((-1)(0,0,0)(153,153,153)(-1))
+*ARMOR*
 
-Blue Tile/Wall   ((0,0,153)(0,0,153)(0,0,51)(153,153,255)
-Red Tile/Wall    ((
-Green Tile/Wall  ((
+Player Armor                   ((-1)(0,0,0)(0,204,255)(204,255,153)) Standard Blue Shirt     A0
+Player Armor                   ((-1)(0,0,0)(153,153,153)(204,255,153)) Gray Mail Suit        A1
+	^ Sprite               ((-1)(0,0,0)(153,153,153)(-1))
+
+*WEAPONS*
+
+	*First Sword Model*
+Wood/Stone Sword               ((-1)(102,51,0)(204,204,204)(-1))                             W0
+Wood/Saphire Sword             ((-1)(102,51,0)(153,153,255)(-1))                             W4
+	*Second Sword Model*
+Stone Sword                    ((-1)(51,51,51)(204,204,204)(-1))                             W1
+Saphire Sword                  ((-1)(51,51,51)(153,153,255)(-1))                             W5  
+	*Third Sword Model*
+Enforced Stone Sword           ((-1)(51,51,51)(204,204,204)(-1))                             W2
+Enforced Saphire Sword         ((-1)(51,51,51)(153,153,255)(-1))                             W6
+	*Fourth Sword Model*
+Bastard Sword                  ((-1)(51,51,51)(204,204,204)(153,153,153))                    W3
+Big Blue                       ((-1)(51,51,51)(153,153,255)(153,153,153))                    W7
+
+*EQUIPMENT*
 
 
 
+*TILES*
 
-Fireball/Impact  ((-1)(-1)(204,102,0)(204,255,102))
+Gray Tile/Wall                 ((153,153,153)(-1)(51,51,51)(204,204,204))
+Blue Tile/Wall                 ((0,0,153)(-1)(0,0,51)(153,153,255))
+Red Tile/Wall                  ((
+Green Tile/Wall                ((
+
+*EFFECTS*
+
+Fireball/Impact                ((-1)(-1)(204,102,0)(204,255,102))
